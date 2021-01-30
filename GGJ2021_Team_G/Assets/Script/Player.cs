@@ -6,11 +6,12 @@ public class Player : MonoBehaviour
 {
 
 
-
+    private Vector3 position;
     public float speed = 10f;
     IDisposable characterMove;
     void Start()
     {
+        position = this.transform.position;
         characterMove = Observable.EveryUpdate()
             .Subscribe(_ => _2DMove())
             .AddTo(this.gameObject);
