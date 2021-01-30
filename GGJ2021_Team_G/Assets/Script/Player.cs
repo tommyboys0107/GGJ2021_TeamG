@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+    public static Player Instance;
 
     private Vector3 position;
     public float speed = 10f;
     IDisposable characterMove;
     void Start()
     {
+        Instance = this;
         position = this.transform.position;
         characterMove = Observable.EveryUpdate()
             .Subscribe(_ => _2DMove())
             .AddTo(this.gameObject);
-        GameManager.Dead60Sec(this);
-
 
     }
     [ContextMenu("2D_to_3D")]
@@ -51,5 +50,9 @@ public class Player : MonoBehaviour
         if (moveDirection == Vector3.zero) return;
         transform.forward = moveDirection;
         transform.position += moveDirection * speed * Time.deltaTime;
+    }
+    public void DeadReset()
+    {
+        transform.position = position;
     }
 }

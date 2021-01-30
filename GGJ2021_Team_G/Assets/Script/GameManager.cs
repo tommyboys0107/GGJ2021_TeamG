@@ -4,31 +4,46 @@ using UnityEngine;
 
 public static class GameManager 
 {
+    private static Animator Room;
     static int nowStage;
-    public static void Stage_MoveForward()
+    private static GameObject canvas;
+    public static void Start()
     {
-        nowStage++;
+        canvas=GameObject.Find("Canvas");
+        Room = Tool.GetUIComponent<Animator>(canvas, "Curtain");
+        Stage_MoveForward(new Stage1());
+        Dead60Sec();
     }
-    //現在狀態
-    public static bool RightStage(int stage)
+    
+    public static void Stage_MoveForward(Stage stage)
     {
-        if (stage == nowStage) return true;
-        else return false;
+        stage.DO();
     }
+
     //提示項目
 
     static IDisposable dead;
     //死亡控制
-    public static void Dead60Sec(Player player)
+    public static void Dead60Sec()
     {
-        dead = Observable.Timer(TimeSpan.FromSeconds(60))
-            .Subscribe(_=> ReSet())
-            .AddTo(player);
+        dead = Observable.Timer(TimeSpan.FromSeconds(6))
+            .Subscribe(_=> Dead())
+            .AddTo(Player.Instance);
     }
-    private static void ReSet()
+    private static void Dead()
     {
-        Debug.Log("DEAD");
         dead.Dispose();
         //一段動畫後移到初始位置
+        Observable.Timer(TimeSpan.FromSeconds(3))
+                  .Subscribe(_ => Reset())
+                  .AddTo(Player.Instance);
+    }
+    static void Reset()
+    {
+        Room.Play("RoomIn");
+        Observable.Timer(TimeSpan.FromSeconds(1))
+            .Subscribe(_=> { Player.Instance.DeadReset(); Room.Play("RoomOut"); })
+            .AddTo(Player.Instance);
+        
     }
 }
