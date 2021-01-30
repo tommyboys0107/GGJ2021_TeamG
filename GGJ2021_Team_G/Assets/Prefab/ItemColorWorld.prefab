@@ -53,11 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7459855357277993809, guid: 99b3e4582dd05f34b9c802c68409e56e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7459855357277993809, guid: 99b3e4582dd05f34b9c802c68409e56e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7459855357277993809, guid: 99b3e4582dd05f34b9c802c68409e56e, type: 3}
       propertyPath: m_LocalRotation.y
@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7459855357277993809, guid: 99b3e4582dd05f34b9c802c68409e56e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 7459855357277993809, guid: 99b3e4582dd05f34b9c802c68409e56e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -90,7 +90,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3651788552881207560, guid: 5db95ab312077de48bb5d42d51a7b897, type: 3}
       propertyPath: m_Name
-      value: ItemColorWorld
+      value: ItemColorWorld Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3651788552881207561, guid: 5db95ab312077de48bb5d42d51a7b897, type: 3}
       propertyPath: m_Size.x
