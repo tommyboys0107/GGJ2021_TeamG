@@ -55,6 +55,7 @@ public static class GameManager
               Player.Instance.DeadReset();
               Room.DOColor(new Color(0, 0, 0, 0), 1f)
                   .SetEase(Ease.OutCubic);
+              Dead60Sec();
           })
           .AddTo(Player.Instance);
 
