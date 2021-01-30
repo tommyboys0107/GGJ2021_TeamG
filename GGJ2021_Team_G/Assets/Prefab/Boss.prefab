@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 7628303526959747849}
   weekPoint: {fileID: 7933411127986707853}
+  rpc: 20
 --- !u!1001 &6085229491915611427
 PrefabInstance:
   m_ObjectHideFlags: 0
