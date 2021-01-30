@@ -6,4 +6,5 @@ public class GameSource : MonoBehaviour
 {
     public GameObject ItemGlasses;
     public GameObject ItemColorWorld;
+    public AudioSource CameraSource;
 }
