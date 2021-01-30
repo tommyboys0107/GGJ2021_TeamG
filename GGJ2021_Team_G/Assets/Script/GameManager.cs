@@ -45,14 +45,13 @@ public static class GameManager
     static void Reset()
     {
         RoomIn();
-
     }
 
     private static void RoomIn()
     {
         Room.DOColor(new Color(0, 0, 0, 1), 1f)
             .SetEase(Ease.InCubic)
-            .OnComplete(() => RoomOut());
+            .OnComplete(() => WaitRoomOut());
     }
 
     static void WaitRoomOut()
