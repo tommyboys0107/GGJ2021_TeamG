@@ -44,27 +44,44 @@ public static class GameManager
     }
     static void Reset()
     {
+        RoomIn();
+
+    }
+
+    private static void RoomIn()
+    {
         Room.DOColor(new Color(0, 0, 0, 1), 1f)
             .SetEase(Ease.InCubic)
-            .OnComplete(()=>test());
-
-        
+            .OnComplete(() => RoomOut());
     }
-    static void test()
+
+    static void WaitRoomOut()
     {
         Observable.Timer(TimeSpan.FromSeconds(0.5))
-          .Subscribe(_ => {
+          .Subscribe(_ =>
+          {
               Player.Instance.DeadReset();
-              Room.DOColor(new Color(0, 0, 0, 0), 1f)
-                  .SetEase(Ease.OutCubic);
+              RoomOut();
               Dead60Sec();
           })
           .AddTo(Player.Instance);
 
     }
 
+    private static void RoomOut()
+    {
+        Room.DOColor(new Color(0, 0, 0, 0), 1f)
+            .SetEase(Ease.OutCubic);
+    }
+
     public static void GameEnd()
     {
-
+        RoomIn();
+        Observable.Timer(TimeSpan.FromSeconds(1))
+         .Subscribe(_ =>
+         {
+             RoomOut();
+         })
+         .AddTo(Player.Instance);
     }
 }
