@@ -18,6 +18,8 @@ public static class GameManager
     }
     private static void ReSet()
     {
-
+        Debug.Log("DEAD");
+        dead.Dispose();
+        //一段動畫後移到初始位置
     }
 }

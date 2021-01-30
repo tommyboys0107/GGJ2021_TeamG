@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
         characterMove = Observable.EveryUpdate()
             .Subscribe(_ => _2DMove())
             .AddTo(this.gameObject);
-
+        GameManager.Dead60Sec(this);
 
 
     }
@@ -42,10 +42,13 @@ public class Player : MonoBehaviour
     }
     void _2DMove()
     {
-        Vector3 moveDirection = new Vector3(0, 0, Input.GetAxis("Horizontal"));
-        moveDirection = transform.TransformDirection(moveDirection);
-        Debug.Log(moveDirection);
-        moveDirection *= speed * Time.deltaTime;
-        transform.position += moveDirection;
+        float Hor_Input = 0f;
+        Hor_Input = Input.GetAxis("Horizontal");
+
+        Vector3 moveDirection = new Vector3(Hor_Input, 0, 0);
+        moveDirection.Normalize();
+        if (moveDirection == Vector3.zero) return;
+        transform.forward = moveDirection;
+        transform.position += moveDirection * speed * Time.deltaTime;
     }
 }
