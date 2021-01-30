@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
         characterMove = Observable.EveryUpdate()
             .Subscribe(_ => _2DMove())
             .AddTo(this.gameObject);
-
     }
     [ContextMenu("2D_to_3D")]
     public void changeMove()
