@@ -6,12 +6,14 @@ using UnityEngine.UI;
 
 public static class GameManager 
 {
+    //private static GameSource source;
     private static Image Room;
     static int nowStage;
     private static GameObject canvas;
     public static void Start()
     {
-        canvas=GameObject.Find("Canvas");
+        //source = GameObject.Find("GameSource").GetComponent<GameSource>();
+        canvas =GameObject.Find("Canvas");
         Room = Tool.GetUIComponent<Image>(canvas, "Curtain");
         Stage_MoveForward(new Stage1());
         Dead60Sec();
@@ -58,6 +60,11 @@ public static class GameManager
               Dead60Sec();
           })
           .AddTo(Player.Instance);
+
+    }
+
+    public static void GameEnd()
+    {
 
     }
 }

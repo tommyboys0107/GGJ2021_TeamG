@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private Vector3 position;
     public float speed = 10f;
     IDisposable characterMove;
+    private int deadtimes=0;
     void Start()
     {
         Instance = this;
@@ -16,6 +17,8 @@ public class Player : MonoBehaviour
         characterMove = Observable.EveryUpdate()
             .Subscribe(_ => _2DMove())
             .AddTo(this.gameObject);
+        Subject<Unit> subject = new Subject<Unit>();
+        
     }
     [ContextMenu("2D_to_3D")]
     public void changeMove()
@@ -53,5 +56,8 @@ public class Player : MonoBehaviour
     public void DeadReset()
     {
         transform.position = position;
+        deadtimes++;
+        //•·≤¥√Ë°C
+        if (deadtimes == 1) ;
     }
 }
