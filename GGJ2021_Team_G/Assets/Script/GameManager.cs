@@ -45,14 +45,13 @@ public static class GameManager
     static void Reset()
     {
         RoomIn();
-
     }
 
     private static void RoomIn()
     {
         Room.DOColor(new Color(0, 0, 0, 1), 1f)
             .SetEase(Ease.InCubic)
-            .OnComplete(() => RoomOut());
+            .OnComplete(() => WaitRoomOut());
     }
 
     static void WaitRoomOut()
@@ -80,6 +79,11 @@ public static class GameManager
         Observable.Timer(TimeSpan.FromSeconds(1))
          .Subscribe(_ =>
          {
+             //顯示圖片、播音樂
+             //攝影機模糊、會逐漸關掉
+             //睜眼動畫
+             //RoomOut可能拿掉
+             //增加點擊結束遊戲
              RoomOut();
          })
          .AddTo(Player.Instance);
