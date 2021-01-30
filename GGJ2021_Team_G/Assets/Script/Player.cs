@@ -7,12 +7,10 @@ public class Player : MonoBehaviour
 
 
 
-    public float speedInFrame = 0.01F;
-    CharacterController controller;
+    public float speed = 10f;
     IDisposable characterMove;
     void Start()
     {
-        controller = GetComponent<CharacterController>();
         characterMove = Observable.EveryUpdate()
             .Subscribe(_ => _2DMove())
             .AddTo(this.gameObject);
@@ -21,7 +19,7 @@ public class Player : MonoBehaviour
 
     }
     [ContextMenu("2D_to_3D")]
-    private void changeMove()
+    public void changeMove()
     {
         characterMove.Dispose();
         characterMove= Observable.EveryUpdate()
@@ -31,17 +29,24 @@ public class Player : MonoBehaviour
 
     void _3DMove()
     {
-        Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= speedInFrame;
-        controller.Move(moveDirection);
+        float Hor_Input = 0f;
+        float Ver_Input = 0f;
+        Ver_Input = Input.GetAxis("Vertical");
+        Hor_Input = Input.GetAxis("Horizontal");
+
+        Vector3 moveDirection = new Vector3(Hor_Input, 0, Ver_Input);
+        moveDirection.Normalize();
+        if (moveDirection == Vector3.zero) return;
+        transform.forward = moveDirection; 
+        transform.position += moveDirection* speed*Time.deltaTime;
     }
     void _2DMove()
     {
         Vector3 moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical"));
         moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= speedInFrame;
-        controller.Move(moveDirection);
+        Debug.Log(moveDirection);
+        moveDirection *= speed * Time.deltaTime;
+        transform.position += moveDirection;
     }
     private void OnCollisionEnter(Collision collision)
     {
