@@ -60,6 +60,22 @@ MonoBehaviour:
     m_ScenePreview: 1
   m_DurationMode: 0
   m_MarkerTrack: {fileID: -1430590307961683210}
+--- !u!114 &1053714502911913382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 5
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 0a7deab67d06da245a628a10ad1d671c, type: 2}
 --- !u!114 &4282555120651832223
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,7 +245,8 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 2DNormalShotCam
   m_Markers:
-    m_Objects: []
+    m_Objects:
+    - {fileID: 1053714502911913382}
 --- !u!114 &5944232573367945957
 MonoBehaviour:
   m_ObjectHideFlags: 1
