@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public static class GameManager 
 {
-    //private static GameSource source;
+    public static GameSource source;
     private static Image Room;
     static int nowStage;
     private static GameObject canvas;
     public static void Start()
     {
-        //source = GameObject.Find("GameSource").GetComponent<GameSource>();
+        source = GameObject.Find("GameSource").GetComponent<GameSource>();
         canvas =GameObject.Find("Canvas");
         Room = Tool.GetUIComponent<Image>(canvas, "Curtain");
         Stage_MoveForward(new Stage1());

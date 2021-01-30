@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class GameSource : MonoBehaviour
 {
-    public GameObject glasses;
+    public GameObject ItemGlasses;
+    public GameObject ItemColorWorld;
 }

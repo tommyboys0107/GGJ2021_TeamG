@@ -58,6 +58,6 @@ public class Player : MonoBehaviour
         transform.position = position;
         deadtimes++;
         //•·≤¥√Ë°C
-        if (deadtimes == 1) ;
+        if (deadtimes == 1) GameManager.source.ItemGlasses.SetActive(true);
     }
 }
