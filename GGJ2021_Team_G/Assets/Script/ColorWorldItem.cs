@@ -4,6 +4,6 @@ public class ColorWorldItem : ItemCollideHandler
 {
    protected override void DoTouch(Collider collision)
     {
-        PostProcessingManager.instance.SetGrayScale(false);
+        PostProcessingManager.instance.TweenGrayEffect(false);
     }
 }
