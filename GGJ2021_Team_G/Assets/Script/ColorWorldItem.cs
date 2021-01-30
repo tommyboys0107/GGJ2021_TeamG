@@ -2,14 +2,8 @@ using UnityEngine;
 
 public class ColorWorldItem : ItemCollideHandler
 {
-    void Awake()
+   protected override void DoTouch(Collider collision)
     {
-        switchGrayScale = GameObject.Find("Volume").GetComponent<SwitchGrayScale>();       
-    }
-
-    private SwitchGrayScale switchGrayScale;
-    protected override void DoTouch(Collider collision)
-    {
-        switchGrayScale.SetGrayScale(false);
+        PostProcessingManager.instance.SetGrayScale(false);
     }
 }
