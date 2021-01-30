@@ -42,13 +42,10 @@ public class Player : MonoBehaviour
     }
     void _2DMove()
     {
-        Vector3 moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical"));
+        Vector3 moveDirection = new Vector3(0, 0, Input.GetAxis("Horizontal"));
         moveDirection = transform.TransformDirection(moveDirection);
         Debug.Log(moveDirection);
         moveDirection *= speed * Time.deltaTime;
         transform.position += moveDirection;
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
     }
 }
