@@ -28,23 +28,25 @@ public static class GameManager
 
     //提示項目
 
-    static IDisposable dead;
+    static IDisposable Dead_Detect;
+    static IDisposable DoDead;
     //死亡控制
     public static void Dead60Sec()
     {
-        dead = Observable.Timer(TimeSpan.FromSeconds(3))
+        Dead_Detect = Observable.Timer(TimeSpan.FromSeconds(3))
             .Subscribe(_=> Dead())
             .AddTo(Player.Instance);
     }
     public static void Dead60Sec_Cancel()
     {
-        dead.Dispose();
+        Dead_Detect.Dispose();
+        DoDead.Dispose();
     }
     private static void Dead()
     {
-        dead.Dispose();
+        Dead_Detect.Dispose();
         //一段動畫後移到初始位置
-        Observable.Timer(TimeSpan.FromSeconds(3))
+        DoDead=Observable.Timer(TimeSpan.FromSeconds(3))
                   .Subscribe(_ => Reset())
                   .AddTo(Player.Instance);
     }
@@ -59,7 +61,11 @@ public static class GameManager
             .SetEase(Ease.InCubic)
             .OnComplete(() => WaitRoomOut());
     }
-
+    private static void RoomInNotRoomOut()
+    {
+        Room.DOColor(new Color(0, 0, 0, 1), 1f)
+            .SetEase(Ease.InCubic);
+    }
     static void WaitRoomOut()
     {
         Observable.Timer(TimeSpan.FromSeconds(0.5))
@@ -81,8 +87,7 @@ public static class GameManager
 
     public static void GameEnd()
     {
-        Debug.Log("gameEnd");return;
-        RoomIn();
+        RoomInNotRoomOut();
         Observable.Timer(TimeSpan.FromSeconds(3))
          .Subscribe(_ =>
          {
