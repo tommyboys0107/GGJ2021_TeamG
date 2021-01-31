@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class GameSource : MonoBehaviour
 {
@@ -13,4 +11,5 @@ public class GameSource : MonoBehaviour
     public GameObject[] NotImportantList;
     public GameObject eyeOpen;
     public ParticleSystem Particle;
+    public Button CloseButton;
 }
