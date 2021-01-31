@@ -288,12 +288,12 @@ GameObject:
   - component: {fileID: 990885938}
   - component: {fileID: 990885937}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: DirectionalLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &990885937
 Light:
   m_ObjectHideFlags: 0
@@ -306,7 +306,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -880,15 +880,15 @@ PrefabInstance:
       objectReference: {fileID: 935390890}
     - target: {fileID: 4553420703812591702, guid: e73ac41ff697a5742a9560dfb8e79d27, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.12218323
+      value: -0.122183256
       objectReference: {fileID: 0}
     - target: {fileID: 4553420703812591702, guid: e73ac41ff697a5742a9560dfb8e79d27, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000030489364
+      value: 2.4198927e-15
       objectReference: {fileID: 0}
     - target: {fileID: 4553420703812591702, guid: e73ac41ff697a5742a9560dfb8e79d27, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000037534114
+      value: 1.6126688e-16
       objectReference: {fileID: 0}
     - target: {fileID: 4553420703995554793, guid: e73ac41ff697a5742a9560dfb8e79d27, type: 3}
       propertyPath: m_Follow
@@ -904,19 +904,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4553420704099654642, guid: e73ac41ff697a5742a9560dfb8e79d27, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99611205
+      value: 0.996112
       objectReference: {fileID: 0}
     - target: {fileID: 4553420704099654642, guid: e73ac41ff697a5742a9560dfb8e79d27, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.08809559
+      value: -0.088095576
       objectReference: {fileID: 0}
     - target: {fileID: 4553420704099654642, guid: e73ac41ff697a5742a9560dfb8e79d27, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017378825
+      value: 0.00000001721333
       objectReference: {fileID: 0}
     - target: {fileID: 4553420704099654642, guid: e73ac41ff697a5742a9560dfb8e79d27, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000015369735
+      value: 0.0000000015223368
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e73ac41ff697a5742a9560dfb8e79d27, type: 3}
