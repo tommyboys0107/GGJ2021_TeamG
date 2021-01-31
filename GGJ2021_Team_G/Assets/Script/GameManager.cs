@@ -99,6 +99,7 @@ public static class GameManager
              //攝影機模糊
              //PostProcessingManager.instance
              //睜眼動畫
+             GameManager.source.eyeOpen.SetActive(true);
              //攝影機不模糊
              //RoomOut可能拿掉
              //增加點擊結束遊戲

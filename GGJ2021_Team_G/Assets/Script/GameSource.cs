@@ -11,7 +11,6 @@ public class GameSource : MonoBehaviour
     public GameObject ItemVisibleBoss;
     public GameObject ItemKillBoss;
     public GameObject[] NotImportantList;
+    public GameObject eyeOpen;
     public ParticleSystem Particle;
-    public AudioSource MusicSource;
-    public AudioClip MusicClip;
 }
