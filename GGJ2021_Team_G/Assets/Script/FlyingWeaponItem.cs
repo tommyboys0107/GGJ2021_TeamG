@@ -16,6 +16,7 @@ public class FlyingWeaponItem : ItemCollideHandler
         GameObject boss = GameObject.FindGameObjectWithTag("Boss");
         if (boss != null)
         {
+            GameManager.Dead60Sec_Cancel();
             GameObject flying = Instantiate(this.gameObject);
             Destroy(flying.GetComponent<FlyingWeaponItem>());
             BossUnit bu = boss.GetComponent<BossUnit>();

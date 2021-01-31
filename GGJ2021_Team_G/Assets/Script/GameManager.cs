@@ -36,6 +36,10 @@ public static class GameManager
             .Subscribe(_=> Dead())
             .AddTo(Player.Instance);
     }
+    public static void Dead60Sec_Cancel()
+    {
+        dead.Dispose();
+    }
     private static void Dead()
     {
         dead.Dispose();

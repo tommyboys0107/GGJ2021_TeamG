@@ -7,6 +7,8 @@ public class GameSource : MonoBehaviour
 {
     public GameObject ItemGlasses;
     public GameObject ItemColorWorld;
+    public GameObject ItemVisibleBoss;
+    public GameObject ItemKillBoss;
     public AudioSource MusicSource;
     public AudioClip MusicClip;
 }
