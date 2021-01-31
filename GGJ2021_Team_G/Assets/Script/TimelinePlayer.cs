@@ -11,7 +11,7 @@ public static class TimelinePlayer
     {
         PlayableDirector playableDirector = GameObject.Find("EntryTimeline").GetComponent<PlayableDirector>();
         playableDirector.Play();
-        Debug.Log($"[{nameof(TimelinePreferences)}] Entry");
+        Debug.Log($"[{nameof(TimelinePlayer)}] Entry");
     }
 
     public static void PlayDimension()
@@ -19,7 +19,7 @@ public static class TimelinePlayer
         PlayableDirector playableDirector = GameObject.Find("DimensionTimeline").GetComponent<PlayableDirector>();
         playableDirector.Play();
         hasChangeDimension = true;
-        Debug.Log($"[{nameof(TimelinePreferences)}] Dimension");
+        Debug.Log($"[{nameof(TimelinePlayer)}] Dimension");
     }
 
     public static void PlayFocus()
@@ -29,7 +29,7 @@ public static class TimelinePlayer
 
         PlayableDirector playableDirector = GameObject.Find("FocusTimeline").GetComponent<PlayableDirector>();
         playableDirector.Play();
-        Debug.Log($"[{nameof(TimelinePreferences)}] Focus");
+        Debug.Log($"[{nameof(TimelinePlayer)}] Focus");
     }
 
     public static void PlayReturnNormal()
@@ -39,7 +39,7 @@ public static class TimelinePlayer
 
         PlayableDirector playableDirector = GameObject.Find("ReturnNormalTimeline").GetComponent<PlayableDirector>();
         playableDirector.Play();
-        Debug.Log($"[{nameof(TimelinePreferences)}] Return");
+        Debug.Log($"[{nameof(TimelinePlayer)}] Return");
     }
 
     public static void PlayEnd()
@@ -49,6 +49,6 @@ public static class TimelinePlayer
 
         PlayableDirector playableDirector = GameObject.Find("EndTimeline").GetComponent<PlayableDirector>();
         playableDirector.Play();
-        Debug.Log($"[{nameof(TimelinePreferences)}] End");
+        Debug.Log($"[{nameof(TimelinePlayer)}] End");
     }
 }

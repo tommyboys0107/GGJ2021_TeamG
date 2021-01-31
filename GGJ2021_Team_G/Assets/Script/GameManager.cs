@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public static class GameManager 
 {
-    //public static Texture2D trueEnd;
-    //private static int trueEndCount=0;
     public static GameSource source;
     private static Image Room;
     private static Image GameEndPicture;
@@ -122,7 +120,11 @@ public static class GameManager
              //RoomOut可能拿掉
              //增加點擊結束遊戲
              RoomOut();
+             Observable.Timer(TimeSpan.FromSeconds(6f))
+             .Subscribe(_=> { source.CloseButton.gameObject.SetActive(true); source.CloseButton.onClick.AddListener(Application.Quit); });
          })
          .AddTo(Player.Instance);
     }
+
+
 }
