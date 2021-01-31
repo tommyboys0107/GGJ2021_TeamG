@@ -25,7 +25,9 @@ public class FlyingWeaponItem : ItemCollideHandler
             print(flying.transform.localPosition);
             print(bu.weekPos);
             flying.transform.DOMove(bu.weekPos, flyingTime).OnComplete(() => {
-                this.gameObject.SetActive(false);
+                flying.gameObject.SetActive(false);
+                //ready to play result animation
+                GameManager.GameEnd();
             });
         }
         this.gameObject.SetActive(false);
