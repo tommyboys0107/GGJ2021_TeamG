@@ -45,6 +45,11 @@ public class BossUnit : MonoBehaviour
         }
     }
 
+    public void PlayBossAttack(bool state)
+    {
+        animator.SetBool("attack", state);
+    }
+
     public void TurnBossVisible()
     {
         if (body != null)
