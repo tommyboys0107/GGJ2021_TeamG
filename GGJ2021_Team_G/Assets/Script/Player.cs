@@ -5,7 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player Instance;
-    private Animator animator;
+    public GameObject origin;
+    public Animator animator;
     private Vector3 position;
     public float speed = 10f;
     IDisposable characterMove;
@@ -34,11 +35,14 @@ public class Player : MonoBehaviour
         GameManager.GameEnd();
     }
 
-    void ChangeToHuman()
+    [ContextMenu("changeHuman")]
+    public void ChangeToHuman()
     {
         characterMove.Dispose();
+        origin.SetActive(false);
+        animator.gameObject.SetActive(true);
         characterMove = Observable.EveryUpdate()
-            .Subscribe(_ => _3DMove())
+            .Subscribe(_ => _3DMoveHuman())
             .AddTo(this.gameObject);
         
     }
@@ -63,8 +67,8 @@ public class Player : MonoBehaviour
         Hor_Input = Input.GetAxis("Horizontal");
 
         Vector3 moveDirection = new Vector3(Hor_Input, 0, Ver_Input);
-        //if (moveDirection!=Vector3.zero) animator.Play();
-        //else animator.Play();
+        if (moveDirection!=Vector3.zero) animator.SetBool("walk",true);
+        else animator.SetBool("walk", false);
         moveDirection.Normalize();
         if (moveDirection == Vector3.zero) return;
         transform.forward = moveDirection;

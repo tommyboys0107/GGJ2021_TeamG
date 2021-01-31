@@ -25,6 +25,7 @@ public class _3DStage : Stage
         GameManager.source.NotImportantList[0].SetActive(true);
         GameManager.source.NotImportantList[1].SetActive(true);
         GameManager.source.NotImportantList[2].SetActive(true);
+        GameManager.source.NotImportantList[6].SetActive(true);
     }
 }
 public class ToKillBoss_Stage : Stage

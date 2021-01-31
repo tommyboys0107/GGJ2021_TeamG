@@ -8,7 +8,7 @@ ModelImporter:
     second: idle_01
   - first:
       74: -998496362607748373
-    second: Take 001
+    second: Run_001
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -67,7 +67,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Take 001
+      name: Run_001
       takeName: Take 001
       internalID: 0
       firstFrame: 170

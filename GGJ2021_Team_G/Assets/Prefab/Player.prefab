@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe1101ba4370ec43a07889d0488fce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  origin: {fileID: 5142854787912865695}
+  animator: {fileID: 2105170678331005247}
   speed: 10
 --- !u!54 &4275110548350804733
 Rigidbody:
@@ -185,6 +187,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f617b54217478c347a6e13cc999d139f, type: 3}
+--- !u!1 &5142854787912865695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021513261721196256, guid: f617b54217478c347a6e13cc999d139f, type: 3}
+  m_PrefabInstance: {fileID: 4210247369736356223}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5142854787912865692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9021513261721196259, guid: f617b54217478c347a6e13cc999d139f, type: 3}
@@ -201,6 +208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: little_hippo
       objectReference: {fileID: 0}
+    - target: {fileID: 7451914378762858126, guid: 8d268107c2d5b784b8bfcaf8a8f7d745, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7791601231590945844, guid: 8d268107c2d5b784b8bfcaf8a8f7d745, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -211,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7791601231590945844, guid: 8d268107c2d5b784b8bfcaf8a8f7d745, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.535
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7791601231590945844, guid: 8d268107c2d5b784b8bfcaf8a8f7d745, type: 3}
       propertyPath: m_LocalPosition.z
@@ -250,5 +261,10 @@ PrefabInstance:
 --- !u!4 &1926881934546253062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7791601231590945844, guid: 8d268107c2d5b784b8bfcaf8a8f7d745, type: 3}
+  m_PrefabInstance: {fileID: 8546984235213668658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2105170678331005247 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7758555868798031885, guid: 8d268107c2d5b784b8bfcaf8a8f7d745, type: 3}
   m_PrefabInstance: {fileID: 8546984235213668658}
   m_PrefabAsset: {fileID: 0}
