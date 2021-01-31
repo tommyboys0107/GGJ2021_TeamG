@@ -9,7 +9,7 @@ public class Glasses : ItemCollideHandler
         Player player= collision.gameObject.GetComponent<Player>();
         player.changeMove();
         TimelinePlayer.PlayDimension();
-        GameManager.Stage_MoveForward(new _3DStage());
+        GameManager.Stage_MoveForward(new VisableBosStage());
         gameObject.SetActive(false);
     }
 }
