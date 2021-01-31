@@ -30,6 +30,7 @@ public class BossUnit : MonoBehaviour
     private bool startLerpRotate = false;
     private Quaternion originalRotation;
     private Quaternion lookAtRotation;
+    private int step = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +55,20 @@ public class BossUnit : MonoBehaviour
         {
             fogEffect.SetActive(true);
         }
+    }
+
+    public void AnimationPlayCount()
+    {
+        if (step + 1 < 5)
+        {
+            step++;
+        }
+        else
+        {
+            step = 0;
+        }
+
+        animator.SetInteger("step", step);
     }
 
     // Update is called once per frame

@@ -45,13 +45,14 @@ public static class GameManager
     private static void Dead()
     {
         Dead_Detect.Dispose();
-        //一段動畫後移到初始位置
+        TimelinePlayer.PlayFocus();
         DoDead=Observable.Timer(TimeSpan.FromSeconds(3))
                   .Subscribe(_ => Reset())
                   .AddTo(Player.Instance);
     }
     static void Reset()
     {
+        TimelinePlayer.PlayReturnNormal();
         RoomIn();
     }
 
