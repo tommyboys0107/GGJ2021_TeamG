@@ -51,13 +51,26 @@ public static class GameManager
     {
         Dead_Detect.Dispose();
         TimelinePlayer.PlayFocus();
-        DoDead=Observable.Timer(TimeSpan.FromSeconds(3))
+        MusicManager.instance.PlayBossAttackSound();
+        BossUnit boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossUnit>();
+        if (boss != null)
+        {
+            Debug.Log("Boss Attack");
+            boss.PlayBossAttack(true);
+        }
+        DoDead =Observable.Timer(TimeSpan.FromSeconds(3))
                   .Subscribe(_ => Reset())
                   .AddTo(Player.Instance);
     }
     static void Reset()
     {
         TimelinePlayer.PlayReturnNormal();
+        MusicManager.instance.StopBossAttackSound();
+        BossUnit boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossUnit>();
+        if (boss != null)
+        {
+            boss.PlayBossAttack(false);
+        }
         RoomIn();
     }
 
