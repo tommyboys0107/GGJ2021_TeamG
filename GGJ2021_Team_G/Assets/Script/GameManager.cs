@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public static class GameManager 
 {
-    public static Texture2D trueEnd;
-    private static int trueEndCount=0;
+    //public static Texture2D trueEnd;
+    //private static int trueEndCount=0;
     public static GameSource source;
     private static Image Room;
     private static Image GameEndPicture;
@@ -20,12 +20,12 @@ public static class GameManager
         Room = Tool.GetUIComponent<Image>(canvas, "Curtain");
         GameEndPicture = Tool.GetUIComponent<Image>(canvas, "GameEndPicture");
         Stage_MoveForward(new Stage1());
-        Dead60Sec();
+        Dead60Sec(2.0f);
     }
-    public static void GetNotImportantItem()
-    {
-        trueEndCount--;
-    }
+    //public static void GetNotImportantItem()
+    //{
+    //    //trueEndCount--;
+    //}
     public static void Stage_MoveForward(Stage stage)
     {
         stage.DO();
@@ -36,9 +36,9 @@ public static class GameManager
     static IDisposable Dead_Detect;
     static IDisposable DoDead;
     //¦º¤`±±¨î
-    public static void Dead60Sec()
+    public static void Dead60Sec(float time)
     {
-        Dead_Detect = Observable.Timer(TimeSpan.FromSeconds(5))
+        Dead_Detect = Observable.Timer(TimeSpan.FromSeconds(time))
             .Subscribe(_=> Dead())
             .AddTo(Player.Instance);
     }
@@ -51,7 +51,7 @@ public static class GameManager
     {
         Dead_Detect.Dispose();
         TimelinePlayer.PlayFocus();
-        DoDead=Observable.Timer(TimeSpan.FromSeconds(5))
+        DoDead=Observable.Timer(TimeSpan.FromSeconds(3))
                   .Subscribe(_ => Reset())
                   .AddTo(Player.Instance);
     }
@@ -80,7 +80,7 @@ public static class GameManager
           {
               Player.Instance.DeadReset();
               RoomOut();
-              Dead60Sec();
+              Dead60Sec(10.0f);
           })
           .AddTo(Player.Instance);
 
