@@ -305,7 +305,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261062538}
-  m_LocalRotation: {x: 0.21658352, y: 0.0000000034132466, z: -7.5722717e-10, w: 0.9762641}
+  m_LocalRotation: {x: 0.21658352, y: 0.00000000341325, z: -7.5722784e-10, w: 0.9762641}
   m_LocalPosition: {x: 0, y: 8, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -831,7 +831,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910923854}
-  m_LocalRotation: {x: -0.122183256, y: 2.4198927e-15, z: 1.6126688e-16, w: 0.9925076}
+  m_LocalRotation: {x: -0.12218323, y: -0.000000030489364, z: -0.0000000037534114, w: 0.9925076}
   m_LocalPosition: {x: 0, y: 0, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -903,7 +903,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959571816}
-  m_LocalRotation: {x: 0.21658352, y: 0.0000000034132466, z: -7.5722717e-10, w: 0.9762641}
+  m_LocalRotation: {x: 0.21658352, y: 0.00000000341325, z: -7.5722784e-10, w: 0.9762641}
   m_LocalPosition: {x: 0, y: 8, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1501,7 +1501,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemGlasses: {fileID: 47597895}
   ItemColorWorld: {fileID: 987154340}
-  CameraSource: {fileID: 0}
+  MusicSource: {fileID: 261062546}
+  MusicClip: {fileID: 8300000, guid: 3a9d301012a25604cb99c0f21ee91d09, type: 3}
 --- !u!4 &1585398253
 Transform:
   m_ObjectHideFlags: 0
