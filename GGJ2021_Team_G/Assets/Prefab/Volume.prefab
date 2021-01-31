@@ -62,4 +62,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultGray: 1
-  tweenGrayTime: 10
+  tweenGrayTime: 2
