@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 6224599279911745771}
   fogEffect: {fileID: 5883450263268128367}
-  weekPoint: {fileID: 5883450263268128367}
+  weekPoint: {fileID: 7767590396585716859}
   animator: {fileID: 7767590397739498327}
   rpc: 20
 --- !u!1 &6075461464059430650
@@ -176,6 +176,11 @@ Animator:
 --- !u!1 &5883450263268128367 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5799073305092666154, guid: 32839fdc91d9ae9469484f5bb874b83c, type: 3}
+  m_PrefabInstance: {fileID: 134057566718772549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7767590396585716859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7642682141083691326, guid: 32839fdc91d9ae9469484f5bb874b83c, type: 3}
   m_PrefabInstance: {fileID: 134057566718772549}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6224599279911745771 stripped
