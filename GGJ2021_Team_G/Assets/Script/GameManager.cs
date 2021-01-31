@@ -8,6 +8,7 @@ public static class GameManager
 {
     public static GameSource source;
     private static Image Room;
+    private static Image GameEndPicture;
     static int nowStage;
     private static GameObject canvas;
     public static void Start()
@@ -15,6 +16,7 @@ public static class GameManager
         source = GameObject.Find("GameSource").GetComponent<GameSource>();
         canvas =GameObject.Find("Canvas");
         Room = Tool.GetUIComponent<Image>(canvas, "Curtain");
+        GameEndPicture = Tool.GetUIComponent<Image>(canvas, "GameEndPicture");
         Stage_MoveForward(new Stage1());
         Dead60Sec();
     }
@@ -33,6 +35,10 @@ public static class GameManager
         dead = Observable.Timer(TimeSpan.FromSeconds(3))
             .Subscribe(_=> Dead())
             .AddTo(Player.Instance);
+    }
+    public static void Dead60Sec_Cancel()
+    {
+        dead.Dispose();
     }
     private static void Dead()
     {
@@ -75,13 +81,19 @@ public static class GameManager
 
     public static void GameEnd()
     {
+        Debug.Log("gameEnd");return;
         RoomIn();
-        Observable.Timer(TimeSpan.FromSeconds(1))
+        Observable.Timer(TimeSpan.FromSeconds(3))
          .Subscribe(_ =>
          {
              //顯示圖片、播音樂
-             //攝影機模糊、會逐漸關掉
+             GameEndPicture.gameObject.SetActive(true);
+             source.MusicSource.clip = source.MusicClip;
+             source.MusicSource.Play();
+             //攝影機模糊
+             //PostProcessingManager.instance
              //睜眼動畫
+             //攝影機不模糊
              //RoomOut可能拿掉
              //增加點擊結束遊戲
              RoomOut();
