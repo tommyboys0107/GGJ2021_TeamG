@@ -8,3 +8,4 @@ public class ColorWorldItem : ItemCollideHandler
         gameObject.SetActive(false);
     }
 }
+
