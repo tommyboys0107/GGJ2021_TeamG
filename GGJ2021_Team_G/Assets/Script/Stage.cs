@@ -9,6 +9,13 @@ public class Stage1 : Stage
         //重置狀態
     }
 }
+public class MusicStage : Stage
+{
+    public override void DO()
+    {
+        GameManager.source.ItemGlasses.SetActive(true);
+    }
+}
 public class _3DStage : Stage
 {
     public override void DO()
