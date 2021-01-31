@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public static class GameManager 
 {
+    public static Texture2D trueEnd;
+    private static int trueEndCount=0;
     public static GameSource source;
     private static Image Room;
     private static Image GameEndPicture;
@@ -20,7 +22,10 @@ public static class GameManager
         Stage_MoveForward(new Stage1());
         Dead60Sec();
     }
-    
+    public static void GetNotImportantItem()
+    {
+        trueEndCount--;
+    }
     public static void Stage_MoveForward(Stage stage)
     {
         stage.DO();
@@ -89,6 +94,7 @@ public static class GameManager
 
     public static void GameEnd()
     {
+        //if (trueEndCount <= 0) GameEndPicture.sprite = trueEnd;return;
         RoomInNotRoomOut();
         Observable.Timer(TimeSpan.FromSeconds(3))
          .Subscribe(_ =>
