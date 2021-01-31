@@ -7,6 +7,7 @@ public class ListenMusicItem : ItemCollideHandler
     protected override void DoTouch(Collider collision)
     {
         MusicManager.instance.UnlockFunction();
+        GameManager.Stage_MoveForward(new MusicStage());
         this.gameObject.SetActive(false);
     }
 }
