@@ -68,6 +68,14 @@ public class MusicManager : MonoBehaviour
         soundFxSource.PlayOneShot(bossAttackClip);
     }
 
+    /// <summary>
+    /// 目前的BOSS攻擊音效有點長，手動關閉。
+    /// </summary>
+    public void StopBossAttackSound()
+    {
+        soundFxSource.Stop();
+    }
+
     public void PlayPickUpSound()
     {
         if (unlock == false)
