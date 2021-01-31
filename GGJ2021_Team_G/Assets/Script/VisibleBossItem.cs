@@ -13,7 +13,7 @@ public class VisibleBossItem : ItemCollideHandler
             boss.GetComponent<BossUnit>().TurnBossVisible();
         }
         this.gameObject.SetActive(false);
-        GameManager.Stage_MoveForward(new ToKillBoss_Stage());
+        GameManager.Stage_MoveForward(new Color_Stage());
 
         Light light = GameObject.Find("DirectionalLight").GetComponent<Light>();
         light.DOIntensity(1.0f, 2.0f);
