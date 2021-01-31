@@ -52,7 +52,7 @@ public class BossUnit : MonoBehaviour
         }
         if (fogEffect != null)
         {
-            fogEffect.SetActive(false);
+            fogEffect.SetActive(true);
         }
     }
 
