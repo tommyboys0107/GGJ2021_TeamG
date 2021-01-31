@@ -8,7 +8,9 @@ using UnityEngine;
 public class BossUnit : MonoBehaviour
 {
     public GameObject body;
+    public GameObject fogEffect;
     public GameObject weekPoint;
+    public Animator animator;
 
     public Vector3 weekPos
     {
@@ -24,7 +26,6 @@ public class BossUnit : MonoBehaviour
 
     public float rpc = 1080f;
     private float lerpSpeed = 0f;
-    private Animator anim;
     private float lerpTimer = 0;
     private bool startLerpRotate = false;
     private Quaternion originalRotation;
@@ -32,10 +33,14 @@ public class BossUnit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
         if (body != null)
         {
             body.SetActive(false);
+        }
+
+        if (fogEffect != null)
+        {
+            fogEffect.SetActive(false);
         }
     }
 
@@ -44,6 +49,10 @@ public class BossUnit : MonoBehaviour
         if (body != null)
         {
             body.SetActive(true);
+        }
+        if (fogEffect != null)
+        {
+            fogEffect.SetActive(false);
         }
     }
 
