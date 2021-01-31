@@ -33,7 +33,7 @@ public static class GameManager
     //死亡控制
     public static void Dead60Sec()
     {
-        Dead_Detect = Observable.Timer(TimeSpan.FromSeconds(3))
+        Dead_Detect = Observable.Timer(TimeSpan.FromSeconds(5))
             .Subscribe(_=> Dead())
             .AddTo(Player.Instance);
     }
@@ -46,7 +46,7 @@ public static class GameManager
     {
         Dead_Detect.Dispose();
         TimelinePlayer.PlayFocus();
-        DoDead=Observable.Timer(TimeSpan.FromSeconds(3))
+        DoDead=Observable.Timer(TimeSpan.FromSeconds(5))
                   .Subscribe(_ => Reset())
                   .AddTo(Player.Instance);
     }
@@ -99,7 +99,6 @@ public static class GameManager
              //攝影機模糊
              //PostProcessingManager.instance
              //睜眼動畫
-             GameManager.source.eyeOpen.SetActive(true);
              //攝影機不模糊
              //RoomOut可能拿掉
              //增加點擊結束遊戲
