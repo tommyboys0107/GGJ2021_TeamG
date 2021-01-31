@@ -12,6 +12,6 @@ public class VisibleBossItem : ItemCollideHandler
             boss.GetComponent<BossUnit>().TurnBossVisible();
         }
         this.gameObject.SetActive(false);
-        GameManager.Stage_MoveForward(new Stage4());
+        GameManager.Stage_MoveForward(new ToKillBoss_Stage());
     }
 }

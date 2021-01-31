@@ -11,7 +11,7 @@ public class Glasses : ItemCollideHandler
         Player player= collision.gameObject.GetComponent<Player>();
         player.changeMove();
         playableDirector.Play();
-        GameManager.source.ItemColorWorld.SetActive(true);
+        GameManager.Stage_MoveForward(new _3DStage());
         gameObject.SetActive(false);
     }
 }

@@ -28,10 +28,6 @@ public class Player : MonoBehaviour
             .Subscribe(_ => _3DMove())
             .AddTo(this.gameObject);
     }
-    public  void Dead60Sec_Cancel()
-    {
-        GameManager.Dead60Sec_Cancel();
-    }
     void _3DMove()
     {
         float Hor_Input = 0f;
