@@ -40,8 +40,6 @@ public class Color_Stage : Stage
         GameManager.source.NotImportantList[3].SetActive(true);
         GameManager.source.NotImportantList[4].SetActive(true);
         GameManager.source.NotImportantList[5].SetActive(true);
-        //做stage3要做的事，打倒魔王的物品
-        GameManager.source.ItemKillBoss.SetActive(true);
     }
 }
 public class ToKillBoss_Stage : Stage
