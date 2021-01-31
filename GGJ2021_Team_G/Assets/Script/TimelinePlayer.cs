@@ -41,4 +41,14 @@ public static class TimelinePlayer
         playableDirector.Play();
         Debug.Log($"[{nameof(TimelinePreferences)}] Return");
     }
+
+    public static void PlayEnd()
+    {
+        if (!hasChangeDimension)
+            return;
+
+        PlayableDirector playableDirector = GameObject.Find("EndTimeline").GetComponent<PlayableDirector>();
+        playableDirector.Play();
+        Debug.Log($"[{nameof(TimelinePreferences)}] End");
+    }
 }
