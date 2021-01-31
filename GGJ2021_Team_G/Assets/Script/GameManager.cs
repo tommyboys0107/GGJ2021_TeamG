@@ -20,7 +20,7 @@ public static class GameManager
         Room = Tool.GetUIComponent<Image>(canvas, "Curtain");
         GameEndPicture = Tool.GetUIComponent<Image>(canvas, "GameEndPicture");
         Stage_MoveForward(new Stage1());
-        Dead60Sec();
+        Dead60Sec(2.0f);
     }
     //public static void GetNotImportantItem()
     //{
@@ -36,9 +36,9 @@ public static class GameManager
     static IDisposable Dead_Detect;
     static IDisposable DoDead;
     //¦º¤`±±¨î
-    public static void Dead60Sec()
+    public static void Dead60Sec(float time)
     {
-        Dead_Detect = Observable.Timer(TimeSpan.FromSeconds(5))
+        Dead_Detect = Observable.Timer(TimeSpan.FromSeconds(time))
             .Subscribe(_=> Dead())
             .AddTo(Player.Instance);
     }
@@ -51,7 +51,7 @@ public static class GameManager
     {
         Dead_Detect.Dispose();
         TimelinePlayer.PlayFocus();
-        DoDead=Observable.Timer(TimeSpan.FromSeconds(5))
+        DoDead=Observable.Timer(TimeSpan.FromSeconds(3))
                   .Subscribe(_ => Reset())
                   .AddTo(Player.Instance);
     }
@@ -80,7 +80,7 @@ public static class GameManager
           {
               Player.Instance.DeadReset();
               RoomOut();
-              Dead60Sec();
+              Dead60Sec(10.0f);
           })
           .AddTo(Player.Instance);
 
