@@ -57,6 +57,7 @@ public static class GameManager
 
     private static void RoomIn()
     {
+        MusicManager.instance.PlayBossAttackSound();
         Room.DOColor(new Color(0, 0, 0, 1), 1f)
             .SetEase(Ease.InCubic)
             .OnComplete(() => WaitRoomOut());
@@ -93,8 +94,7 @@ public static class GameManager
          {
              //顯示圖片、播音樂
              GameEndPicture.gameObject.SetActive(true);
-             source.MusicSource.clip = source.MusicClip;
-             source.MusicSource.Play();
+             MusicManager.instance.PlayFinishBGM();
              //攝影機模糊
              //PostProcessingManager.instance
              //睜眼動畫

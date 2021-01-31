@@ -58,6 +58,6 @@ public class Player : MonoBehaviour
         deadtimes++;
         Debug.Log(deadtimes);
         //•·≤¥√Ë°C
-        if (deadtimes == 1) GameManager.source.ItemGlasses.SetActive(true);
+        if (deadtimes == 1) GameManager.source.ItemMusic.SetActive(true);
     }
 }

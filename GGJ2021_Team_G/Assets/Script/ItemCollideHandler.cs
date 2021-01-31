@@ -9,6 +9,7 @@ public abstract class ItemCollideHandler : MonoBehaviour
         if (other.gameObject.name=="Player")
         {
             ParticleSystemPlay();
+            MusicPlay();
             DoTouch(other);
         }
     }
@@ -17,5 +18,9 @@ public abstract class ItemCollideHandler : MonoBehaviour
     {
         GameManager.source.Particle.transform.position = this.transform.position;
         GameManager.source.Particle.Play();
+    }
+    protected void MusicPlay()
+    {
+        MusicManager.instance.PlayPickUpSound();
     }
 }
