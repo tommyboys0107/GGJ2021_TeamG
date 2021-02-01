@@ -10,7 +10,8 @@ public class AnimationCounter : MonoBehaviour
     {
         if (boss != null)
         {
-            boss.AnimationPlayCount();
+            //boss.AnimationPlayCount();
+            boss.PauseFrame();
         }
     }
 }

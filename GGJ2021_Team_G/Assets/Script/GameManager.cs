@@ -11,13 +11,18 @@ public static class GameManager
     private static Image GameEndPicture;
     static int nowStage;
     private static GameObject canvas;
+    private static BossUnit boss;
+    const float fixedDeadTime = 10.0f;
+    const float playFocusTime = 3.0f;
     public static void Start()
     {
         source = GameObject.Find("GameSource").GetComponent<GameSource>();
         canvas =GameObject.Find("Canvas");
+        boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossUnit>();
         Room = Tool.GetUIComponent<Image>(canvas, "Curtain");
         GameEndPicture = Tool.GetUIComponent<Image>(canvas, "GameEndPicture");
         Stage_MoveForward(new Stage1());
+        boss.PlayBossAttack();
         Dead60Sec(2.0f);
     }
     //public static void GetNotImportantItem()
@@ -50,13 +55,7 @@ public static class GameManager
         Dead_Detect.Dispose();
         TimelinePlayer.PlayFocus();
         MusicManager.instance.PlayBossAttackSound();
-        BossUnit boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossUnit>();
-        if (boss != null)
-        {
-            Debug.Log("Boss Attack");
-            boss.PlayBossAttack(true);
-        }
-        DoDead =Observable.Timer(TimeSpan.FromSeconds(3))
+        DoDead =Observable.Timer(TimeSpan.FromSeconds(playFocusTime))
                   .Subscribe(_ => Reset())
                   .AddTo(Player.Instance);
     }
@@ -64,17 +63,11 @@ public static class GameManager
     {
         TimelinePlayer.PlayReturnNormal();
         MusicManager.instance.StopBossAttackSound();
-        BossUnit boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossUnit>();
-        if (boss != null)
-        {
-            boss.PlayBossAttack(false);
-        }
         RoomIn();
     }
 
     private static void RoomIn()
     {
-        MusicManager.instance.PlayBossAttackSound();
         Room.DOColor(new Color(0, 0, 0, 1), 1f)
             .SetEase(Ease.InCubic)
             .OnComplete(() => WaitRoomOut());
@@ -91,10 +84,20 @@ public static class GameManager
           {
               Player.Instance.DeadReset();
               RoomOut();
-              Dead60Sec(10.0f);
+              Dead60Sec(fixedDeadTime);
           })
           .AddTo(Player.Instance);
 
+        float animationTime = 0;
+        animationTime = boss.BossAttackAnimationTime();
+        Debug.Log("Next Boss Attack time : " + animationTime);
+
+        Observable.Timer(TimeSpan.FromSeconds(fixedDeadTime - animationTime))
+            .Subscribe(_ =>
+            {
+                boss.PlayBossAttack();
+            })
+            .AddTo(Player.Instance);
     }
 
     private static void RoomOut()
